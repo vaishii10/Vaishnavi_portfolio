@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaishnavi Rajaram Dhongade — Data Science Candidate</title>
+<meta name="description" content="Vaishnavi Rajaram Dhongade — CSE graduate building hands-on Data Science skills through structured training and daily practice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --ink:        #101B26;   /* primary dark ground */
+    --ink-2:      #16222E;   /* dark ground, slightly lifted */
+    --paper:      #F0F1EA;   /* light ground, cool paper tone */
+    --paper-2:    #E7E6DD;   /* alternate light ground */
+    --card:       #FAFAF6;   /* card surface on paper */
+    --line:       rgba(16,27,38,0.12);
+    --line-dark:  rgba(240,241,234,0.16);
+    --text-ink:   #16222E;
+    --text-muted: #5B6672;
+    --text-paper: #F0F1EA;
+    --gold:       #B98A2E;   /* in-progress / learning accent */
+    --gold-soft:  #F1E4C6;
+    --teal:       #3C7A72;   /* completed accent */
+    --teal-soft:  #DCE9E6;
+    --grey-tag:   #8A9099;   /* upcoming accent */
+    --grey-soft:  #E7E7E3;
+
+    --serif: "Fraunces", Georgia, serif;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono:  "IBM Plex Mono", "SF Mono", Consolas, monospace;
+
+    --max: 880px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text-ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
+
+  section{ padding:88px 0; }
+  @media (max-width:640px){ section{ padding:60px 0; } }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:20px; height:1px;
+    background:var(--gold);
+  }
+
+  h1,h2,h3{ font-family:var(--serif); font-weight:600; margin:0; color:var(--text-ink); }
+  h2{ font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.01em; }
+
+  /* ============ HERO ============ */
+  .hero{
+    background:
+      radial-gradient(circle at 1px 1px, rgba(240,241,234,0.06) 1px, transparent 0) 0 0/28px 28px,
+      var(--ink);
+    color:var(--text-paper);
+    padding:110px 0 90px;
+    position:relative;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+    opacity:0.6;
+  }
+  .hero .eyebrow{ color:var(--gold); }
+  .hero h1{
+    font-size:clamp(38px,6vw,58px);
+    color:var(--text-paper);
+    line-height:1.08;
+    max-width:11ch;
+  }
+  .hero .role{
+    font-family:var(--mono);
+    font-size:14px;
+    color:#C9CDD3;
+    margin-top:14px;
+    letter-spacing:0.02em;
+  }
+  .hero p.lede{
+    margin:28px 0 0;
+    max-width:56ch;
+    font-size:17px;
+    color:#CBD1D8;
+  }
+  .status-line{
+    margin-top:34px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    color:var(--gold);
+    border:1px solid var(--line-dark);
+    padding:9px 16px;
+    border-radius:999px;
+  }
+  .status-line .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 3px rgba(185,138,46,0.22);
+  }
+  .cta-row{ display:flex; gap:14px; margin-top:38px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:14.5px;
+    padding:13px 24px;
+    border-radius:6px;
+    text-decoration:none;
+    display:inline-block;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    border:1px solid transparent;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--gold); color:var(--ink); }
+  .btn-primary:hover{ background:#CB9C3C; }
+  .btn-ghost{ border-color:var(--line-dark); color:var(--text-paper); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold); }
+  .btn-ghost.on-paper{ border-color:var(--line); color:var(--text-ink); }
+  .btn-ghost.on-paper:hover{ border-color:var(--teal); color:var(--teal); }
+
+  /* ============ SECTION HEADERS ============ */
+  .section-head{ margin-bottom:44px; max-width:60ch; }
+  .section-head p{ color:var(--text-muted); margin:14px 0 0; font-size:15.5px; }
+
+  /* ============ CURRENT FOCUS ============ */
+  .focus-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  @media (max-width:640px){ .focus-grid{ grid-template-columns:1fr; } }
+  .focus-card{ background:var(--card); padding:30px 28px; }
+  .focus-card .phase{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:0.08em;
+  }
+  .focus-card h3{ font-size:19px; margin:10px 0 8px; }
+  .focus-card .sub{ font-family:var(--mono); font-size:12.5px; color:var(--text-muted); }
+
+  /* ============ LEARNING JOURNEY (timeline) ============ */
+  .journey{ list-style:none; margin:0; padding:0; border-left:1px solid var(--line); }
+  .journey li{
+    position:relative;
+    padding:0 0 30px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:8px 16px;
+  }
+  .journey li:last-child{ padding-bottom:0; }
+  .journey li::before{
+    content:"";
+    position:absolute; left:-6px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--grey-tag);
+  }
+  .journey li[data-stage="done"]::before{ border-color:var(--teal); background:var(--teal); }
+  .journey li[data-stage="active"]::before{ border-color:var(--gold); background:var(--gold); }
+  .journey .topic{ font-weight:600; font-size:15.5px; }
+  .tag{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .tag-done{ background:var(--teal-soft); color:var(--teal); }
+  .tag-active{ background:var(--gold-soft); color:var(--gold); }
+  .tag-upcoming{ background:var(--grey-soft); color:var(--grey-tag); }
+
+  /* ============ CURRENTLY PRACTICING ============ */
+  .practice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  @media (max-width:640px){ .practice-grid{ grid-template-columns:1fr; gap:32px; } }
+  .practice-col h3{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-bottom:16px;
+    font-weight:600;
+  }
+  .practice-list{ list-style:none; margin:0; padding:0; }
+  .practice-list li{
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:15px;
+  }
+  .practice-list li:last-child{ border-bottom:none; }
+  .mark{ font-family:var(--mono); font-size:14px; width:16px; flex-shrink:0; }
+  .mark-now{ color:var(--teal); }
+  .mark-next{ color:var(--gold); }
+
+  /* ============ SKILLS / TRAINING LOG ============ */
+  .skills-panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:8px 28px;
+  }
+  .skill-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; padding:20px 0; border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .skill-row:last-child{ border-bottom:none; }
+  .skill-name{ font-weight:600; font-size:15.5px; min-width:170px; }
+  .skill-meta{ display:flex; align-items:center; gap:14px; }
+  .stage-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    min-width:118px;
+  }
+
+  .tools-line{
+    margin-top:22px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--text-muted);
+  }
+  .tools-line b{ color:var(--text-ink); font-weight:600; }
+
+  /* ============ PROJECTS ============ */
+  .projects-card{
+    background:var(--ink);
+    color:var(--text-paper);
+    border-radius:10px;
+    padding:46px 40px;
+    text-align:center;
+  }
+  .projects-card .eyebrow{ justify-content:center; }
+  .projects-card p{
+    max-width:52ch; margin:16px auto 0;
+    color:#C9CDD3; font-size:15.5px;
+  }
+
+  /* ============ EDUCATION ============ */
+  .edu-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:640px){ .edu-grid{ grid-template-columns:1fr; } }
+  .edu-card{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:26px 26px;
+  }
+  .edu-card .when{ font-family:var(--mono); font-size:12px; color:var(--gold); letter-spacing:0.05em; }
+  .edu-card h3{ font-size:17px; margin:10px 0 6px; }
+  .edu-card p{ margin:0; font-size:14.5px; color:var(--text-muted); }
+
+  /* ============ CONTACT / FOOTER ============ */
+  .contact{
+    background:var(--ink); color:var(--text-paper);
+    padding:90px 0 60px;
+  }
+  .contact .eyebrow{ color:var(--gold); }
+  .contact h2{ color:var(--text-paper); }
+  .contact p.lede{ color:#CBD1D8; max-width:50ch; margin:14px 0 34px; }
+  .contact-grid{
+    display:grid; grid-template-columns:repeat(2,1fr);
+    gap:14px 24px; margin-bottom:36px;
+    font-family:var(--mono); font-size:14px;
+  }
+  @media (max-width:640px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact-grid div{ padding:14px 0; border-bottom:1px solid var(--line-dark); }
+  .contact-grid span{ display:block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#8A93A0; margin-bottom:6px; }
+  .contact-grid a{ text-decoration:underline; text-decoration-color:var(--line-dark); text-underline-offset:3px; }
+  .contact-grid a:hover{ color:var(--gold); text-decoration-color:var(--gold); }
+  footer.foot{
+    max-width:var(--max); margin:0 auto; padding:26px 28px 0;
+    border-top:1px solid var(--line-dark);
+    font-family:var(--mono); font-size:12px; color:#7C8593;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* ============ NAV ============ */
+  section[id], header[id]{ scroll-margin-top: 78px; }
+  .nav{
+    position:sticky; top:0; z-index:100;
+    background:var(--ink);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    position:relative;
+  }
+  .nav-brand{
+    font-family:var(--mono); font-size:13px;
+    color:var(--text-paper); text-decoration:none;
+    letter-spacing:0.02em; font-weight:600;
+    white-space:nowrap;
+  }
+  .nav-links{
+    display:flex; align-items:center; gap:26px;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    font-family:var(--sans); font-size:14px; font-weight:500;
+    color:#C9CDD3; text-decoration:none;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--gold); }
+  .nav-toggle{
+    display:none;
+    background:none; border:1px solid var(--line-dark);
+    color:var(--text-paper);
+    font-family:var(--mono); font-size:12.5px;
+    padding:8px 12px; border-radius:6px;
+    cursor:pointer;
+  }
+  .nav-toggle:hover{ border-color:var(--gold); color:var(--gold); }
+
+  @media (max-width:860px){
+    .nav-toggle{ display:inline-block; }
+    .nav-links{
+      display:none;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--ink);
+      border-bottom:1px solid var(--line-dark);
+      padding:6px 28px 14px;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{
+      width:100%; padding:13px 0;
+      border-bottom:1px solid var(--line-dark);
+    }
+    .nav-links li{ width:100%; }
+    .nav-links li:last-child a{ border-bottom:none; }
+  }
+
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="wrap">
+      <a class="nav-brand" href="#top">Vaishnavi Dhongade</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Data Science Candidate · In Training</p>
+      <h1>Vaishnavi Rajaram<br>Dhongade</h1>
+      <p class="role">B.Tech CSE · Sandip University, Nashik · Class of 2026</p>
+      <p class="lede">
+        Building hands-on Data Science skills — Python, SQL, statistics, and machine
+        learning — through structured training and daily practice. This portfolio tracks
+        that progress honestly, one module at a time.
+      </p>
+      <div class="status-line"><span class="dot"></span> STATUS: DATA SCIENCE TRAINING IN PROGRESS</div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#journey">View Learning Journey</a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        <a class="btn btn-ghost" href="#contact">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ CURRENT FOCUS ============ -->
+  <section id="focus">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Current Focus</p>
+        <h2>What I'm learning right now</h2>
+        <p>The four core areas of my Data Science training, updated as I move through each one.</p>
+      </div>
+      <div class="focus-grid reveal">
+        <div class="focus-card">
+          <p class="phase">MODULE 01</p>
+          <h3>Python &amp; Data Analysis</h3>
+          <p class="sub">Pandas · NumPy · Visualization</p>
+        </div>
+        <div class="focus-card">
+          <p class="phase">MODULE 02</p>
+          <h3>Statistics</h3>
+          <p class="sub">Probability · Hypothesis Testing · A/B Testing</p>
+        </div>
+        <div class="focus-card">
+          <p class="phase">MODULE 03</p>
+          <h3>SQL</h3>
+          <p class="sub">Queries · Joins · CTEs · Window Functions</p>
+        </div>
+        <div class="focus-card">
+          <p class="phase">MODULE 04</p>
+          <h3>Machine Learning</h3>
+          <p class="sub">Regression · Classification · Model Evaluation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNING JOURNEY ============ -->
+  <section id="journey" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Learning Journey</p>
+        <h2>Where I actually am, right now</h2>
+        <p>No topic is marked complete unless I can comfortably discuss it without notes.</p>
+      </div>
+      <ul class="journey reveal">
+        <li data-stage="done">
+          <span class="topic">Python Fundamentals</span>
+          <span class="tag tag-done">Completed</span>
+        </li>
+        <li data-stage="active">
+          <span class="topic">NumPy &amp; Pandas</span>
+          <span class="tag tag-active">Learning / Practiced</span>
+        </li>
+        <li data-stage="active">
+          <span class="topic">Statistics &amp; Probability</span>
+          <span class="tag tag-active">Learning / Practiced</span>
+        </li>
+        <li data-stage="active">
+          <span class="topic">Machine Learning</span>
+          <span class="tag tag-active">In Progress</span>
+        </li>
+        <li data-stage="upcoming">
+          <span class="topic">SQL</span>
+          <span class="tag tag-upcoming">Upcoming</span>
+        </li>
+        <li data-stage="upcoming">
+          <span class="topic">Power BI</span>
+          <span class="tag tag-upcoming">Upcoming</span>
+        </li>
+        <li data-stage="upcoming">
+          <span class="topic">Applied Projects</span>
+          <span class="tag tag-upcoming">Upcoming</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CURRENTLY PRACTICING ============ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Currently Practicing</p>
+        <h2>Day-to-day, this is the work</h2>
+      </div>
+      <div class="practice-grid reveal">
+        <div class="practice-col">
+          <h3>In practice now</h3>
+          <ul class="practice-list">
+            <li><span class="mark mark-now">✓</span> Data cleaning with Pandas</li>
+            <li><span class="mark mark-now">✓</span> DataFrame operations</li>
+            <li><span class="mark mark-now">✓</span> GroupBy &amp; aggregation</li>
+            <li><span class="mark mark-now">✓</span> Data visualization</li>
+            <li><span class="mark mark-now">✓</span> Basic statistical analysis</li>
+          </ul>
+        </div>
+        <div class="practice-col">
+          <h3>Up next</h3>
+          <ul class="practice-list">
+            <li><span class="mark mark-next">→</span> SQL fundamentals</li>
+            <li><span class="mark mark-next">→</span> Machine learning algorithms</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS (training log, not %) ============ -->
+  <section id="skills" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Skills</p>
+        <h2>Training log</h2>
+        <p>Stages, not scores — a more honest way to show where each skill stands.</p>
+      </div>
+
+      <div class="skills-panel reveal">
+        <div class="skill-row">
+          <span class="skill-name">Python</span>
+          <div class="skill-meta">
+            <span class="stage-label">Working Knowledge</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Pandas / NumPy</span>
+          <div class="skill-meta">
+            <span class="stage-label">Working Knowledge</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Statistics</span>
+          <div class="skill-meta">
+            <span class="stage-label">Developing</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Machine Learning</span>
+          <div class="skill-meta">
+            <span class="stage-label">Learning</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">SQL</span>
+          <div class="skill-meta">
+            <span class="stage-label">Starting</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="tools-line reveal"><b>Tools:</b> Jupyter Notebook · VS Code</p>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="projects-card reveal">
+        <p class="eyebrow">Projects</p>
+        <h2 style="color:var(--text-paper)">Coming soon</h2>
+        <p>
+          I'm currently building hands-on Data Science skills through structured training
+          and practice. Projects will be added here as I complete and document them —
+          no placeholders, just real work when it's ready.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Education</p>
+        <h2>Background</h2>
+      </div>
+      <div class="edu-grid reveal">
+        <div class="edu-card">
+          <p class="when">2022 – 2026 (Expected)</p>
+          <h3>B.Tech in Computer Science &amp; Engineering</h3>
+          <p>Sandip University, Nashik</p>
+        </div>
+        <div class="edu-card">
+          <p class="when">In Progress</p>
+          <h3>Data Science Training Program</h3>
+          <p>Currently pursuing structured training in Data Science.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's connect</h2>
+      <p class="lede">Open to internships, entry-level Data Science roles, and conversations with recruiters.</p>
+
+      <div class="contact-grid">
+        <div><span>Email</span>vaishnavidhongade001@gmail.com</div>
+        <div><span>Phone</span>+91 93226 35592</div>
+        <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/vaishnavi-dhongade-76401227b" target="_blank" rel="noopener">linkedin.com/in/vaishnavi-dhongade</a></div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:vaishnavidhongade001@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/vaishnavi-dhongade-76401227b" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      </div>
+      <p style="font-family:var(--mono); font-size:12px; color:#8A93A0; margin-top:14px;">
+        GitHub link will be added here once ready.
+      </p>
+
+      <footer class="foot">
+        <span>© 2026 Vaishnavi Rajaram Dhongade</span>
+        <span>Version 1.1 — Last updated as of latest training milestone</span>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    // mobile nav: toggle open/closed, auto-close after a link is tapped
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks){
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // subtle reveal-on-scroll; respects prefers-reduced-motion via CSS above
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el=> io.observe(el));
+    } else {
+      revealEls.forEach(el=> el.classList.add('in'));
+    }
+  </script>
+
+</body>
+</html>
